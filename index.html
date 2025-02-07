@@ -8,56 +8,62 @@
       html {
         font-size: 62.5%;
       }
+
       body {
         font-family: Arial, sans-serif;
         text-align: center;
         margin-top: 100px;
       }
-      .container {
+
+      .todo {
         max-width: 550px;
         margin: 0 auto;
       }
-      .todo-app {
+
+      .todo__container {
         padding: 3rem;
         border-radius: 10px;
         border: 1px solid #eaeaea;
       }
-      h2 {
+
+      .todo__title {
         font-size: 2.5rem;
       }
-      #task-input {
+
+      .todo__input {
         padding: 8px;
         width: 74%;
         border: 1px solid #5f9ea0;
         border-radius: 5px;
       }
 
-      #task-input:focus-visible  {
+      .todo__input:focus-visible {
         outline: none;
         border: 1px solid #5f9ea0;
       }
 
-      #add-button {
+      .todo__button {
         outline: none;
         border: 2px solid #5f9ea0;
         border-radius: 5px;
         background-color: #5f9ea0;
+        color: #ffffff;
         width: 20%;
         padding: 8px;
         cursor: pointer;
         transition: transform 0.2s ease-in-out;
-        }
+      }
 
-        #add-button:active {
-            color: #ffffff;
-            transform: scale(0.9);
-        }
+      .todo__button:active {
+        transform: scale(0.9);
+      }
 
-      ul {
+      .todo__list {
         list-style: none;
         padding: 0;
       }
-      li {
+
+      .todo__item {
         background: #f4f4f4;
         font-size: 1.6rem;
         margin: 5px 0;
@@ -66,7 +72,8 @@
         justify-content: space-between;
         border-radius: 5px;
       }
-      .task-error {
+
+      .todo__error {
         color: red;
         font-size: 1.5rem;
         padding: 5px;
@@ -74,27 +81,28 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="todo-app">
-        <h2>To-Do App</h2>
-        <input type="text" id="task-input" placeholder="Add a task..." />
-        <button id="add-button">Add Task</button>
-        <ul id="task-list"></ul>
-        <p class="task-error"></p>
+    <div class="todo">
+      <div class="todo__container">
+        <h2 class="todo__title">To-Do App</h2>
+        <input type="text" class="todo__input" placeholder="Add a task..." />
+        <button class="todo__button">Add Task</button>
+        <ul class="todo__list"></ul>
+        <p class="todo__error"></p>
       </div>
     </div>
 
     <script>
-      const taskInput = document.getElementById("task-input");
-      const listContainer = document.getElementById("task-list");
-      const addButton = document.getElementById("add-button");
-      const taskError = document.querySelector(".task-error");
+      const taskInput = document.querySelector(".todo__input");
+      const listContainer = document.querySelector(".todo__list");
+      const addButton = document.querySelector(".todo__button");
+      const taskError = document.querySelector(".todo__error");
 
       const addTask = () => {
         let task = taskInput.value.trim();
 
         if (task.length > 0) {
           let li = document.createElement("li");
+          li.classList.add("todo__item");
           li.textContent = task;
           listContainer.appendChild(li);
           taskInput.value = "";
