@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple To-Do List</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+      }
+      .container {
+        max-width: 550px;
+        margin: 0 auto;
+      }
+      .todo-app {
+        padding: 3rem;
+        border-radius: 10px;
+        border: 1px solid #eaeaea;
+      }
+      h2 {
+        font-size: 2.5rem;
+      }
+      #task-input {
+        padding: 8px;
+        width: 74%;
+        border: 1px solid #5f9ea0;
+        border-radius: 5px;
+      }
+
+      #task-input:focus-visible  {
+        outline: none;
+        border: 1px solid #5f9ea0;
+      }
+
+      #add-button {
+        outline: none;
+        border: 2px solid #5f9ea0;
+        border-radius: 5px;
+        background-color: #5f9ea0;
+        width: 20%;
+        padding: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        }
+
+        #add-button:active {
+            color: #ffffff;
+            transform: scale(0.9);
+        }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        background: #f4f4f4;
+        font-size: 1.6rem;
+        margin: 5px 0;
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+      }
+      .task-error {
+        color: red;
+        font-size: 1.5rem;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        <h2>To-Do App</h2>
+        <input type="text" id="task-input" placeholder="Add a task..." />
+        <button id="add-button">Add Task</button>
+        <ul id="task-list"></ul>
+        <p class="task-error"></p>
+      </div>
+    </div>
+
+    <script>
+      const taskInput = document.getElementById("task-input");
+      const listContainer = document.getElementById("task-list");
+      const addButton = document.getElementById("add-button");
+      const taskError = document.querySelector(".task-error");
+
+      const addTask = () => {
+        let task = taskInput.value.trim();
+
+        if (task.length > 0) {
+          let li = document.createElement("li");
+          li.textContent = task;
+          listContainer.appendChild(li);
+          taskInput.value = "";
+          taskError.innerText = "";
+        } else {
+          taskError.innerText = "Task input should be filled.";
+        }
+      };
+
+      taskInput.addEventListener("input", () => {
+        if (taskInput.value.trim().length > 0) {
+          taskError.innerText = "";
+        }
+      });
+
+      taskInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          addTask();
+        }
+      });
+
+      addButton.addEventListener("click", addTask);
+    </script>
+  </body>
+</html>
