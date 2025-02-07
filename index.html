@@ -98,12 +98,12 @@
       const taskError = document.querySelector(".todo__error");
 
       const addTask = () => {
-        let task = taskInput.value.trim();
+        let taskValue = taskInput.value.trim();
 
-        if (task.length > 0) {
+        if (taskValue.length > 0) {
           let li = document.createElement("li");
           li.classList.add("todo__item");
-          li.textContent = task;
+          li.textContent = taskValue;
           listContainer.appendChild(li);
           taskInput.value = "";
           taskError.innerText = "";
