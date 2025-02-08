@@ -3,82 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple To-Do List</title>
-    <style>
-      html {
-        font-size: 62.5%;
-      }
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Marigold Web Development To-do application"
+    />
 
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin-top: 100px;
-      }
+    <link rel="stylesheet" href="style.css" />
 
-      .todo {
-        max-width: 550px;
-        margin: 0 auto;
-      }
-
-      .todo__container {
-        padding: 3rem;
-        border-radius: 10px;
-        border: 1px solid #eaeaea;
-      }
-
-      .todo__title {
-        font-size: 2.5rem;
-      }
-
-      .todo__input {
-        padding: 8px;
-        width: 74%;
-        border: 1px solid #5f9ea0;
-        border-radius: 5px;
-      }
-
-      .todo__input:focus-visible {
-        outline: none;
-        border: 1px solid #5f9ea0;
-      }
-
-      .todo__button {
-        outline: none;
-        border: 2px solid #5f9ea0;
-        border-radius: 5px;
-        background-color: #5f9ea0;
-        color: #ffffff;
-        width: 20%;
-        padding: 8px;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-      }
-
-      .todo__button:active {
-        transform: scale(0.9);
-      }
-
-      .todo__list {
-        list-style: none;
-        padding: 0;
-      }
-
-      .todo__item {
-        background: #f4f4f4;
-        font-size: 1.6rem;
-        margin: 5px 0;
-        padding: 8px;
-        display: flex;
-        justify-content: space-between;
-        border-radius: 5px;
-      }
-
-      .todo__error {
-        color: red;
-        font-size: 1.5rem;
-        padding: 5px;
-      }
-    </style>
+    <title>Simple To-Do App</title>
   </head>
   <body>
     <div class="todo">
